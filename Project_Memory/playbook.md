@@ -12,9 +12,9 @@ Phase 0 → Phase 1(CSV移行) → Phase 2(MVP画面) の順で、
 GitHub Pages に何か動くものが上がっている状態。Phase 0 完走が現実ライン。
 
 ## 次の最初のアクション
-- [ ] タスク 0-1: Next.js プロジェクト初期化(Claude Code に /work で着手させる)
-- [ ] 0-1 完了後、0-2(Prisma) → 0-3(NextAuth) → 0-4(seed) の順で
-- [ ] 0-5(CI) は 0-1 完了直後から並行着手可能
+- [x] タスク 0-1: Next.js プロジェクト初期化 ✔ (Next.js 16 + TS + Tailwind 4 + shadcn/ui)
+- [ ] 0-2(Prisma + SQLite) → 0-3(NextAuth) → 0-4(seed) の順で
+- [ ] 0-5(CI) は 0-1 完了済みなので着手可能
 
 ## 要確認事項(人間判断待ち・朝ボスに相談)
 - [ ] このリポジトリ(payyan0702 配下)をボスの組織に移管するか
