@@ -5,7 +5,7 @@
       "phase": 0,
       "title": "Next.js 14 + TS + Tailwind プロジェクト初期化",
       "detail": "create-next-app で App Router + TS + Tailwind、shadcn/ui を導入",
-      "status": "todo",
+      "status": "done",
       "depends_on": [],
       "github_issue": null,
       "branch": "feat/0-1-init-nextjs"
