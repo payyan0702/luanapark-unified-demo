@@ -1,0 +1,170 @@
+{
+  "tasks": [
+    {
+      "id": "0-1",
+      "phase": 0,
+      "title": "Next.js 14 + TS + Tailwind プロジェクト初期化",
+      "detail": "create-next-app で App Router + TS + Tailwind、shadcn/ui を導入",
+      "status": "todo",
+      "depends_on": [],
+      "github_issue": null,
+      "branch": "feat/0-1-init-nextjs"
+    },
+    {
+      "id": "0-2",
+      "phase": 0,
+      "title": "Prisma + SQLite セットアップ",
+      "detail": "prisma init --datasource-provider sqlite、初期スキーマ作成",
+      "status": "todo",
+      "depends_on": ["0-1"],
+      "github_issue": null,
+      "branch": "feat/0-2-prisma-sqlite"
+    },
+    {
+      "id": "0-3",
+      "phase": 0,
+      "title": "NextAuth Credentials プロバイダ実装",
+      "detail": "メール+パスワードでログイン、session に role/storeId を格納",
+      "status": "todo",
+      "depends_on": ["0-2"],
+      "github_issue": null,
+      "branch": "feat/0-3-nextauth"
+    },
+    {
+      "id": "0-4",
+      "phase": 0,
+      "title": "seed スクリプト作成",
+      "detail": "admin/manager/staff の demo ユーザーとダミー店舗4件(ダイビング/キャンプ/コテージ/事業D)を投入",
+      "status": "todo",
+      "depends_on": ["0-3"],
+      "github_issue": null,
+      "branch": "feat/0-4-seed"
+    },
+    {
+      "id": "0-5",
+      "phase": 0,
+      "title": "GitHub Actions CI セットアップ",
+      "detail": "lint / typecheck / test / build を PR で実行",
+      "status": "todo",
+      "depends_on": ["0-1"],
+      "github_issue": null,
+      "branch": "chore/0-5-ci"
+    },
+    {
+      "id": "0-6",
+      "phase": 0,
+      "title": "README にクイックスタート記載",
+      "detail": "3コマンドで起動できる手順とダミーログイン情報を明記",
+      "status": "todo",
+      "depends_on": ["0-4"],
+      "github_issue": null,
+      "branch": "docs/0-6-readme"
+    },
+    {
+      "id": "1-1",
+      "phase": 1,
+      "title": "ダミーCSVフィクスチャ生成スクリプト",
+      "detail": "scripts/demo/generate-fixtures.ts で顧客500/予約1000/売上2000件を生成。個人情報はすべて架空",
+      "status": "todo",
+      "depends_on": ["0-2"],
+      "github_issue": null,
+      "branch": "feat/1-1-fixtures"
+    },
+    {
+      "id": "1-2",
+      "phase": 1,
+      "title": "CSV→DB 顧客インポート(dry-run対応)",
+      "detail": "scripts/migrate/customers.ts --dry-run で件数検証、--apply で投入。エラー行は MigrationError へ",
+      "status": "todo",
+      "depends_on": ["1-1"],
+      "github_issue": null,
+      "branch": "feat/1-2-migrate-customers"
+    },
+    {
+      "id": "1-3",
+      "phase": 1,
+      "title": "CSV→DB 予約・売上インポート",
+      "detail": "customers と同じ方式、外部キー整合性チェック",
+      "status": "todo",
+      "depends_on": ["1-2"],
+      "github_issue": null,
+      "branch": "feat/1-3-migrate-rest"
+    },
+    {
+      "id": "2-1",
+      "phase": 2,
+      "title": "顧客一覧・検索画面",
+      "detail": "/customers。名前/電話 部分一致、ページネーション、Server Component + Prisma",
+      "status": "todo",
+      "depends_on": ["1-2"],
+      "github_issue": null,
+      "branch": "feat/2-1-customer-list"
+    },
+    {
+      "id": "2-2",
+      "phase": 2,
+      "title": "予約カレンダー画面",
+      "detail": "事業別・週表示。FullCalendar または自前",
+      "status": "todo",
+      "depends_on": ["1-3"],
+      "github_issue": null,
+      "branch": "feat/2-2-reservation-calendar"
+    },
+    {
+      "id": "2-3",
+      "phase": 2,
+      "title": "売上入力フォーム",
+      "detail": "顧客選択 → 商品追加 → 会計。トランザクションで Sale + SaleItem を作成",
+      "status": "todo",
+      "depends_on": ["1-3"],
+      "github_issue": null,
+      "branch": "feat/2-3-sales-form"
+    },
+    {
+      "id": "2-4",
+      "phase": 2,
+      "title": "日次ダッシュボード",
+      "detail": "事業別・今日の売上/予約件数/客数。Server Component で集計",
+      "status": "todo",
+      "depends_on": ["2-3"],
+      "github_issue": null,
+      "branch": "feat/2-4-dashboard"
+    },
+    {
+      "id": "2-5",
+      "phase": 2,
+      "title": "スクリーンショット取得と README 更新",
+      "detail": "docs/screenshots/ に 4-6 枚、README から参照。demo-walkthrough.md も執筆",
+      "status": "todo",
+      "depends_on": ["2-4"],
+      "github_issue": null,
+      "branch": "docs/2-5-screenshots"
+    },
+    {
+      "id": "2-6",
+      "phase": 2,
+      "title": "GitHub Pages デモ配信セットアップ",
+      "detail": "demo-deploy.yml 有効化、MSW でAPI モック、静的エクスポート確認",
+      "status": "todo",
+      "depends_on": ["2-5"],
+      "github_issue": null,
+      "branch": "chore/2-6-gh-pages"
+    },
+    {
+      "id": "2-7",
+      "phase": 2,
+      "title": "v0.3.0 リリースタグ作成",
+      "detail": "gh release create v0.3.0、Release Notes に MVP 完了を記載",
+      "status": "todo",
+      "depends_on": ["2-6"],
+      "github_issue": null,
+      "branch": "chore/2-7-release"
+    }
+  ],
+  "status_definition": {
+    "todo": "未着手",
+    "in_progress": "進行中",
+    "done": "完了",
+    "blocked": "ブロック中"
+  }
+}
