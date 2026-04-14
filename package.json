@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
-    "test": "echo \"(no tests yet)\" && exit 0"
+    "test": "echo \"(no tests yet)\" && exit 0",
+    "build:demo": "NEXT_PUBLIC_DEMO_MODE=true next build"
   },
   "dependencies": {
     "@base-ui/react": "^1.4.0",
